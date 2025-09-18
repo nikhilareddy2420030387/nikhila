@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jakku Nikhila Reddy — Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent: #5b21b6;
+      --muted: #6c757d;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --glass: rgba(255,255,255,0.6);
+    }
+    /* dark theme variables (applied to body.dark) */
+    body.dark { --bg: #0b1020; --card: #0f1724; --glass: rgba(255,255,255,0.03); --muted: #9aa4c0; }
+
+    html,body{ height:100%; background:var(--bg); font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#0f1724; }
+    body.dark { color: #e6eef8; }
+
+    /* NAV */
+    .navbar { background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6)); backdrop-filter: blur(6px); }
+    body.dark .navbar { background: linear-gradient(180deg, rgba(10,14,22,0.7), rgba(10,14,22,0.6)); }
+    .nav-link { color: var(--muted) !important; }
+    .nav-link.active { color: var(--accent) !important; font-weight:600; }
+
+    /* HERO */
+    .hero {
+      padding: 64px 0;
+      background: linear-gradient(135deg, rgba(91,33,182,0.06), rgba(91,33,182,0.02));
+    }
+    .hero .title { font-weight: 700; letter-spacing: .2px; }
+    .hero .lead { color: var(--muted); max-width: 720px; }
+
+    /* Profile image */
+    .avatar {
+      width: 160px; height: 160px; border-radius: 50%;
+      object-fit: cover; border: 6px solid white; box-shadow: 0 10px 30px rgba(20,20,50,0.08);
+    }
+    body.dark .avatar { border-color: #0b1020; }
+
+    /* Cards & sections */
+    section { padding: 56px 0; }
+    .card-plain { background: var(--card); border: none; border-radius: 12px; box-shadow: 0 10px 30px rgba(18,24,50,0.06); }
+    body.dark .card-plain { box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
+
+    .skill-pill { display:inline-block; padding: 8px 12px; margin:6px; border-radius: 999px; background: linear-gradient(90deg,#fff,#fff); border:1px solid rgba(0,0,0,0.04); font-weight:600; }
+    body.dark .skill-pill { background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02)); border-color: rgba(255,255,255,0.04); }
+
+    /* timeline */
+    .timeline { border-left: 3px solid rgba(91,33,182,0.12); padding-left: 18px; }
+    body.dark .timeline { border-left-color: rgba(91,33,182,0.24); }
+
+    /* projects */
+    .project-thumb { height:160px; object-fit:cover; border-radius:8px; }
+
+    /* footer */
+    footer { padding:24px 0; color: var(--muted); }
+
+    /* small screens */
+    @media (max-width:768px){
+      .avatar { width:120px; height:120px; }
+      .hero { padding: 44px 0; text-align:center; }
+      .hero .btn-group { justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home" style="color:var(--accent)">Jakku Nikhila Reddy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-3">
+            <div class="btn-group" role="group" aria-label="Theme">
+              <button id="lightBtn" class="btn btn-outline-secondary btn-sm" title="Light mode">☀️</button>
+              <button id="darkBtn" class="btn btn-outline-secondary btn-sm" title="Dark mode">🌙</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <h1 class="title display-5 mb-3">Hi — I'm <span style="color:var(--accent)">Jakku Nikhila Reddy</span></h1>
+          <p class="lead">Student at KL University. I enjoy learning C, Java and Python and building responsive web interfaces using HTML, CSS and Bootstrap.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#projects" class="btn btn-primary btn-lg">View Projects</a>
+            <a href="#contact" class="btn btn-outline-secondary btn-lg">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 text-lg-end text-center">
+          <!-- update the src with your public image link -->
+          <img id="profilePhoto" src="/path/to/your-photo.jpg" alt="Jakku Nikhila Reddy" class="avatar">
+          <div class="mt-3 small text-muted">Hyderabad · KL University</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card-plain p-4">
+            <h3 class="mb-2">About Me</h3>
+            <p class="text-muted">I am a student at KL University with a strong interest in programming and problem-solving. I enjoy learning C, Java, and Python while building a strong foundation in computer science concepts.</p>
+
+            <h6 class="mt-4">Timeline & Achievements</h6>
+            <ul class="timeline mt-3">
+              <li><strong>2025</strong> — Achieved <strong>9.84 CGPA</strong> in semester exams</li>
+              <li><strong>2024</strong> — Gained solid foundations in Python & Java</li>
+              <li><strong>2023</strong> — Started programming journey with C language</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card-plain p-4 text-center">
+            <h6 class="mb-3">Quick Facts</h6>
+            <p class="mb-1"><strong>Education:</strong> KL University</p>
+            <p class="mb-1"><strong>Location:</strong> Hyderabad, India</p>
+            <p class="mb-0"><strong>Email:</strong> <a href="mailto:jakkunikhilareddy@gmail.com">jakkunikhilareddy@gmail.com</a></p>
+            <div class="mt-3">
+              <a href="https://github.com/nikhilareddy2420030387" target="_blank" class="btn btn-outline-dark btn-sm me-2">GitHub</a>
+              <a href="https://www.linkedin.com/in/nikhila-reddy-918a29330/" target="_blank" class="btn btn-outline-primary btn-sm">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="bg-white">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Skills</h3>
+        <small class="text-muted">Technical strengths & tools</small>
+      </div>
+
+      <div class="card-plain p-4">
+        <div class="mb-3">
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">HTML5</span>
+          <span class="skill-pill">CSS3</span>
+          <span class="skill-pill">Bootstrap</span>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h6 class="mb-2">Programming</h6>
+            <p class="text-muted">Algorithms, data structures basics, problem solving using C & Java; scripting and small automation using Python.</p>
+          </div>
+          <div class="col-md-6">
+            <h6 class="mb-2">Frontend</h6>
+            <p class="text-muted">Responsive pages with HTML, CSS, Bootstrap and vanilla JavaScript.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Selected Projects</h3>
+        <small class="text-muted">Practical work & demos</small>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <article class="card-plain p-3 h-100">
+            <img class="project-thumb w-100 mb-3" src="https://via.placeholder.com/600x300?text=Python+Project" alt="Even and Odd Counter">
+            <h5>Even & Odd Number Counter</h5>
+            <p class="text-muted">A Python mini-project that counts even and odd numbers using loops and conditionals. Includes input handling and summary output.</p>
+            <div class="mt-2">
+              <a class="btn btn-sm btn-outline-primary" href="#" role="button">View code</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <article class="card-plain p-3 h-100">
+            <img class="project-thumb w-100 mb-3" src="https://via.placeholder.com/600x300?text=Java+Project" alt="Java String Utilities">
+            <h5>Java String Utilities</h5>
+            <p class="text-muted">Collection of Java programs demonstrating string manipulation: substring, concatenation, comparisons, and simple utilities for practice.</p>
+            <div class="mt-2">
+              <a class="btn btn-sm btn-outline-primary" href="#" role="button">View code</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <article class="card-plain p-3 h-100">
+            <img class="project-thumb w-100 mb-3" src="https://via.placeholder.com/600x300?text=Frontend+Project" alt="Frontend Slideshow">
+            <h5>Frontend Slideshow Website</h5>
+            <p class="text-muted">A responsive product-based slideshow built with HTML, CSS and JavaScript. Focus on responsive layout and accessibility.</p>
+            <div class="mt-2">
+              <a class="btn btn-sm btn-outline-primary" href="#" role="button">Preview</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="bg-white">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card-plain p-4">
+            <h4>Contact Me</h4>
+            <p class="text-muted">I’m open to collaboration and project work. Send me a message and I’ll reply soon.</p>
+
+            <form id="contactForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input id="cf-name" class="form-control" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input id="cf-email" type="email" class="form-control" required>
+                <div class="invalid-feedback">Enter a valid email address.</div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea id="cf-msg" class="form-control" rows="4" required></textarea>
+                <div class="invalid-feedback">Please write a message.</div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card-plain p-4 text-center">
+            <img src="https://via.placeholder.com/320x220?text=Contact" alt="Contact" class="img-fluid rounded mb-3">
+            <p class="mb-1"><strong>Location</strong><br>Hyderabad, India</p>
+            <p class="mb-1"><strong>Email</strong><br><a href="mailto:jakkunikhilareddy@gmail.com">jakkunikhilareddy@gmail.com</a></p>
+            <p class="mb-0"><strong>Social</strong><br>
+              <a href="https://github.com/nikhilareddy2420030387" target="_blank">GitHub</a> ·
+              <a href="https://www.linkedin.com/in/nikhila-reddy-918a29330/" target="_blank">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center">
+    <div class="container small">
+      © <span id="year"></span> Jakku Nikhila Reddy · Built with HTML • Bootstrap • JS
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // theme toggle
+    const lightBtn = document.getElementById('lightBtn');
+    const darkBtn = document.getElementById('darkBtn');
+
+    function setTheme(theme){
+      if(theme === 'dark') document.body.classList.add('dark');
+      else document.body.classList.remove('dark');
+      localStorage.setItem('site-theme', theme);
+    }
+
+    // load saved theme
+    const saved = localStorage.getItem('site-theme') || 'light';
+    setTheme(saved);
+
+    lightBtn.addEventListener('click', () => setTheme('light'));
+    darkBtn.addEventListener('click', () => setTheme('dark'));
+
+    // simple navbar active link on scroll
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function onScroll(){
+      const y = window.scrollY;
+      sections.forEach(sec => {
+        if(sec.offsetTop - 80 <= y && (sec.offsetTop + sec.offsetHeight - 80) > y){
+          const id = sec.id;
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // contact form simple validation + demo submit
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      let valid = true;
+      ['cf-name','cf-email','cf-msg'].forEach(id => {
+        const el = document.getElementById(id);
+        if(!el.value.trim()){
+          el.classList.add('is-invalid'); valid = false;
+        } else {
+          el.classList.remove('is-invalid');
+        }
+      });
+      const email = document.getElementById('cf-email');
+      if(email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
+        email.classList.add('is-invalid'); valid = false;
+      }
+
+      if(!valid) return;
+      // Demo behaviour: open mail client with the message
+      const name = document.getElementById('cf-name').value.trim();
+      const msg = encodeURIComponent(document.getElementById('cf-msg').value.trim());
+      const mailto = `mailto:jakkunikhilareddy@gmail.com?subject=${encodeURIComponent('Portfolio Contact from ' + name)}&body=${msg}`;
+      window.location.href = mailto;
+    });
+
+    // if user hasn't provided a profile image, show a nicer placeholder
+    const profile = document.getElementById('profilePhoto');
+    profile.onerror = function(){ profile.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop'; };
+    // if user left default path, we replace with placeholder automatically
+    if(!profile.src || profile.src.endsWith('/path/to/your-photo.jpg')){
+      profile.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop';
+    }
+  </script>
+</body>
+</html>
